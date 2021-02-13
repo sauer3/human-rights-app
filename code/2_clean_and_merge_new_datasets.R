@@ -11,7 +11,7 @@ dir <- "...updating_df/"
 output.dir <- ".../final_for_viz/"
 
 # Dataframes
-df <- read.csv(paste0(dir, "final_for_viz.csv"))
+df <- read.csv(paste0(dir, "final_for_viz.csv")) # old dataset to add the new year(s) to
 violations <- read.csv(paste0(dir, "violations_df.csv"))
 non_violations <- read.csv(paste0(dir, "non_violations_df.csv"))
 important_cases <- read.csv(paste0(dir, "important_cases_df.csv"))

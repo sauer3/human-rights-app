@@ -109,10 +109,9 @@ server <- function(input, output){
         filter(year >= input$yearInput[1],
                year <= input$yearInput[2],
                Judgement_type %in% input$groupInput,
-               all_labels == paste0(
-                 input$articleInput[order(nchar(input$articleInput), input$articleInput)], 
-                 collapse = ","))
-               #all_labels == paste0(input$articleInput, collapse = ","))
+               grepl(
+                 paste0(input$articleInput[order(nchar(input$articleInput), input$articleInput)], collapse = ","), 
+                 all_labels))
     }
     
     map_df <- df_summarize %>%
@@ -183,9 +182,9 @@ server <- function(input, output){
           filter(year >= input$yearInput[1],
                  year <= input$yearInput[2],
                  Judgement_type %in% input$groupInput,
-                 all_labels == paste0(
-                   input$articleInput[order(nchar(input$articleInput), input$articleInput)], 
-                   collapse = ","))
+                 grepl(
+                   paste0(input$articleInput[order(nchar(input$articleInput), input$articleInput)], collapse = ","), 
+                   all_labels))
       }
       write.csv(df_table, file)
     })
